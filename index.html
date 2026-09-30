@@ -1,0 +1,322 @@
+<p>Natnicha</p>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Natnichcha Rattanasri</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #F8F9FA;
+            --primary-soft: #A3D9C9;
+            --secondary-soft: #FFD1DC;
+            --accent-purple: #C8B6E2;
+            --text-main: #2D3748;
+            --text-muted: #718096;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --shadow-soft: 0 10px 30px rgba(163, 217, 201, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(255, 209, 220, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(163, 217, 201, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(200, 182, 226, 0.3) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Hero / Profile Section */
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-img-wrapper {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 20px auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #FFF;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .profile-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: var(--accent-purple);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .faculty-title {
+            color: #5A67D8;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .bio-text {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            font-size: 0.95rem;
+        }
+
+        /* Grid Layout for Content */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-soft);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .icon-skill { background: var(--primary-soft); }
+        .icon-hobby { background: var(--secondary-soft); }
+        .icon-exp { background: var(--accent-purple); }
+
+        .card h2 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        /* Skills Progress / Chips */
+        .skill-tag {
+            display: inline-block;
+            background: rgba(163, 217, 201, 0.2);
+            color: #2C7A7B;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        /* Hobby Badge */
+        .hobby-box {
+            background: rgba(255, 209, 220, 0.25);
+            border-radius: 14px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #B83280;
+        }
+
+        /* Experience Section */
+        .exp-card {
+            grid-column: 1 / -1;
+        }
+
+        .exp-item {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .exp-details {
+            flex: 1;
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .exp-duration {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .exp-gallery {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            max-height: 400px;
+        }
+
+        .exp-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 600px) {
+            .exp-item {
+                flex-direction: row;
+                align-items: center;
+            }
+            .exp-gallery {
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Profile Header -->
+        <header class="profile-card">
+            <div class="profile-img-wrapper">
+                <!-- รูปโปรไฟล์จาก Google Drive -->
+                <img src="https://lh3.googleusercontent.com/d/1pYLO8vGCiVMhJRa2rIdGIRjTkgGoP_QI" alt="ณัฐนิชชา รัตนศรี" class="profile-img">
+                <span class="profile-badge">✨ Digital Tech</span>
+            </div>
+            <h1>นางสาวณัฐนิชชา รัตนศรี</h1>
+            <p class="faculty-title"><i class="fa-solid fa-graduation-cap"></i> คณะเทคโนโลยี สาขานวัตกรรมธุรกิจดิจิทัล</p>
+            <p class="bio-text">สวัสดีค่ะ! ยินดีต้อนรับสู่พื้นที่แนะนำตัวของฉัน สนใจการเรียนรู้เทคโนโลยี นวัตกรรมใหม่ๆ และพร้อมพัฒนาทักษะด้านดิจิทัลอยู่เสมอค่ะ</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="grid-layout">
+            <!-- Skill Card -->
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-skill">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h2>ความสามารถสนใจ</h2>
+                </div>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">
+                    มีความสนใจด้านการตัดต่อวิดีโอ สามารถตัดต่อคลิปสั้น วิดีโอพรีเซนเทชัน หรือคอนเทนต์ลงโซเชียลได้ระดับเบื้องต้นค่ะ
+                </p>
+                <div class="skill-tag">
+                    <i class="fa-solid fa-film"></i> Video Editing (Basic/Intermediate)
+                </div>
+            </section>
+
+            <!-- Hobby Card -->
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-hobby">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h2>งานอดิเรก</h2>
+                </div>
+                <div class="hobby-box">
+                    <i class="fa-solid fa-tv fa-lg"></i>
+                    <div>
+                        <strong>ชอบดูซีรีส์วาย (Y-Series)</strong>
+                        <p style="font-size: 0.85rem; margin-top: 2px;">เติมพลังสร้างสรรค์และความผ่อนคลายในเวลาว่าง</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internship Experience Card -->
+            <section class="card exp-card">
+                <div class="card-header">
+                    <div class="card-icon icon-exp">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h2>ประสบการณ์ฝึกงาน</h2>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-details">
+                        <div class="exp-company">Lotus's Go Fresh</div>
+                        <div class="exp-duration"><i class="fa-regular fa-clock"></i> ระยะเวลาฝึกงาน 6 เดือน</div>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">
+                            ได้เรียนรู้ระบบการทำงานจริง การบริหารจัดการหน้าร้าน การบริการลูกค้า และการนำเทคโนโลยีมาประยุกต์ใช้ในธุรกิจค้าปลีกอย่างครบวงจร
+                        </p>
+                    </div>
+                    <div class="exp-gallery">
+                        <!-- รูปภาพประสบการณ์ฝึกงานจาก Google Drive -->
+                        <img src="https://lh3.googleusercontent.com/d/1bOxuDZZbUgwj7lU9-8kiE0qZ1u3jkQK0" alt="ประสบการณ์ฝึกงาน Lotus's Go Fresh">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Natnichcha Rattanasri | Digital Business Innovation Portfolio</p>
+        </footer>
+    </div>
+
+</body>
+</html>
